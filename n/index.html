@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ник · Erzetix AI Studio</title>
+<style>
+html,body{margin:0;height:100%;background:#000}
+video{position:fixed;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+#s{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom));transform:translateX(-50%);
+font:500 16px -apple-system,system-ui,sans-serif;color:#111318;background:rgba(255,255,255,.92);
+border:0;border-radius:999px;padding:14px 22px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+</style></head><body>
+<video id="v" src="nick.mp4" poster="poster.jpg" autoplay muted playsinline loop controls preload="auto"></video>
+<button id="s">🔊 Включить звук</button>
+<script>
+const v=document.getElementById('v'),s=document.getElementById('s');
+function on(){v.muted=false;v.play();s.remove();}
+s.onclick=on;
+v.play().catch(()=>{});
+v.addEventListener('volumechange',()=>{if(!v.muted)s.remove();});
+</script>
+</body></html>
